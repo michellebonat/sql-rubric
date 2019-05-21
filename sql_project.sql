@@ -1,14 +1,80 @@
 /* Q1: Some of the facilities charge a fee to members, but some do not.
 Please list the names of the facilities that do. */
+name
+Tennis Court 1
+Tennis Court 2
+Massage Room 1
+Massage Room 2
+Squash Court
+
+SELECT name
+FROM  `Facilities` 
+WHERE membercost >0
+LIMIT 0 , 30
+
 
 
 /* Q2: How many facilities do not charge a fee to members? */
+4
+
+SELECT COUNT( name ) 
+FROM  `Facilities` 
+WHERE membercost =0
 
 
 /* Q3: How can you produce a list of facilities that charge a fee to members,
 where the fee is less than 20% of the facility's monthly maintenance cost?
 Return the facid, facility name, member cost, and monthly maintenance of the
 facilities in question. */
+2
+Badminton Court
+0.0
+50
+
+4
+Massage Room 1
+9.9
+3000
+
+5
+Massage Room 2
+9.9
+3000
+
+8
+Pool Table
+0.0
+15
+
+7
+Snooker Table
+0.0
+15
+
+6
+Squash Court
+3.5
+80
+
+3
+Table Tennis
+0.0
+10
+
+0
+Tennis Court 1
+5.0
+200
+
+1
+Tennis Court 2
+5.0
+200
+
+
+SELECT facid, name, membercost, monthlymaintenance
+FROM Facilities
+WHERE membercost < ( monthlymaintenance * 0.2 ) 
 
 
 /* Q4: How can you retrieve the details of facilities with ID 1 and 5?
